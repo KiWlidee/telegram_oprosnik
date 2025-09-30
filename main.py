@@ -4,7 +4,6 @@ from aiogram import Bot, Dispatcher
 from handlers import router
 
 async def main():
-    # Берем токен из переменных окружения
     TOKEN = os.getenv('BOT_TOKEN')
     if not TOKEN:
         raise ValueError("BOT_TOKEN not found in environment variables")
@@ -12,6 +11,9 @@ async def main():
     bot = Bot(token=TOKEN)
     dp = Dispatcher()
     dp.include_router(router)
+    
+    # Очищаем webhook и запускаем polling
+    await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
