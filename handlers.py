@@ -12,6 +12,11 @@ results = []
 
 username = ""
 
+@router.message(Command("test"))
+async def test_cmd(message: types.Message):
+    print("✅ TEST команда получена!")
+    await message.answer("Бот работает!")
+
 def writing_logs(question, message):
     print('Записываю логи...')
     with open("C:\\vscodepj\\primer\\opr_logs.txt", "a", encoding="utf-8") as f:
