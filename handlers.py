@@ -14,7 +14,7 @@ username = ""
 
 def writing_logs(question, message):
     print('Записываю логи...')
-    with open("C:\\vscodepj\\primer\\opr_logs.txt", "a", encoding="utf-8") as f:
+    with open("C:\\vscodepj\\telegram_oprosnik\\opr_logs.txt", "a", encoding="utf-8") as f:
         time = str(datetime.now())
         f.write(f"Время: {time[:19]}.  Имя пользователя - {username}. Вопрос: {question} - Ответ: {message}\n")
 
