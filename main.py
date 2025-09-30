@@ -19,21 +19,18 @@ async def main():
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
 
-# async def main():
-#     TOKEN = os.getenv('BOT_TOKEN')
-#     if not TOKEN:
-#         raise ValueError("BOT_TOKEN not found in environment variables")
+async def main():
+    TOKEN = os.getenv('BOT_TOKEN')
+    if not TOKEN:
+        raise ValueError("BOT_TOKEN not found in environment variables")
     
-#     bot = Bot(token=TOKEN)
-#     dp = Dispatcher()
-#     dp.include_router(router)
-    
-#     # Очищаем webhook и запускаем polling
-#     await bot.delete_webhook(drop_pending_updates=True)
-#     await dp.start_polling(bot)
+    bot = Bot(token=TOKEN)
+    dp = Dispatcher()
+    dp.include_router(router)
 
-# if __name__ == "__main__":
-#     try:
-#         asrun(main())
-#     except KeyboardInterrupt:
-#         print("Бот остановлен")
+
+if __name__ == "__main__":
+    try:
+        asrun(main())
+    except KeyboardInterrupt:
+        print("Бот остановлен")
