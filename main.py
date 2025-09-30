@@ -2,7 +2,8 @@ from aiogram import Bot, Dispatcher
 from asyncio import run as arun
 
 from handlers import router
-from data import TOKEN
+import os
+TOKEN = os.getenv('BOT_TOKEN')
 
 async def main():
     bot = Bot(token=TOKEN)
