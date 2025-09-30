@@ -1,2 +1,6 @@
 data.py
+*.log
+logs/
+__pycache__/
+.env
 opr_logs.txt

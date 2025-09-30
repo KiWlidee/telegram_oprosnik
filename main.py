@@ -1,10 +1,14 @@
+import os
+from asyncio import run as asrun
 from aiogram import Bot, Dispatcher
-from asyncio import run as arun
-
 from handlers import router
-from data import TOKEN
 
 async def main():
+    # Берем токен из переменных окружения
+    TOKEN = os.getenv('BOT_TOKEN')
+    if not TOKEN:
+        raise ValueError("BOT_TOKEN not found in environment variables")
+    
     bot = Bot(token=TOKEN)
     dp = Dispatcher()
     dp.include_router(router)
@@ -12,6 +16,6 @@ async def main():
 
 if __name__ == "__main__":
     try:
-        arun(main())
+        asrun(main())
     except KeyboardInterrupt:
         print("Бот остановлен")
